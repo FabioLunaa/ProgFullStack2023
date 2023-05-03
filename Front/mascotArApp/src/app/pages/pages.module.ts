@@ -6,17 +6,24 @@ import { RegistroUsuarioComponent } from './registro.usuario/registro.usuario.co
 import { MascotasPerdidasComponent } from './MascotasPerdidas/MascotasPerdidas.component';
 import { MascotasEncontradasComponent } from './MascotasEncontradas/MascotasEncontradas.component';
 
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
     RegistroUsuarioComponent,
     MascotasPerdidasComponent,
-    MascotasEncontradasComponent
+    MascotasEncontradasComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [HomeComponent, LoginComponent, RegistroUsuarioComponent, MascotasPerdidasComponent]
+  exports: [HomeComponent, LoginComponent, RegistroUsuarioComponent, MascotasPerdidasComponent,MascotasEncontradasComponent,DashboardComponent]
 })
 export class PagesModule { }
