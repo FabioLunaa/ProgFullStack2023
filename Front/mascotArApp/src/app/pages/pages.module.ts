@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroUsuarioComponent } from './registro.usuario/registro.usuario.component';
 import { MascotasPerdidasComponent } from './MascotasPerdidas/MascotasPerdidas.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -14,7 +15,8 @@ import { MascotasPerdidasComponent } from './MascotasPerdidas/MascotasPerdidas.c
     HomeComponent,
     LoginComponent,
     RegistroUsuarioComponent,
-    MascotasPerdidasComponent
+    MascotasPerdidasComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule
