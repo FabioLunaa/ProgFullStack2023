@@ -1,0 +1,25 @@
+.publicaciones {
+    display: grid;
+    grid-template-columns: auto;
+    margin-bottom: 1.5em;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
+.publicaciones h1 {
+    margin-top: 0.3em;
+    font-weight: 600;
+    font-size: 3em;
+}
+
+.publicaciones h3 {
+    background-color: #e3f8ce;
+    width: 90%;
+    border-radius: 1em;
+}
+
+.publicaciones p {
+    font-weight: 500;
+    margin-bottom: 0.8em;
+    font-size: 1.2em;
+}
