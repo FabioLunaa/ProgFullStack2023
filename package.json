@@ -1,4 +1,12 @@
 {
+<<<<<<< HEAD
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
+{
+=======
+>>>>>>> 58406396d30a906f7d0c7ab20e308a58d8a92fc6
   "devDependencies": {
     "tslib": "^2.5.0"
   },

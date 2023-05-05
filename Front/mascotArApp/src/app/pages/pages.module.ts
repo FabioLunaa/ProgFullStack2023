@@ -6,7 +6,10 @@ import { RegistroUsuarioComponent } from './registro.usuario/registro.usuario.co
 import { MascotasPerdidasComponent } from './MascotasPerdidas/MascotasPerdidas.component';
 import { MascotasEncontradasComponent } from './MascotasEncontradas/MascotasEncontradas.component';
 
+
+
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegistrarMascotaComponent } from './RegistrarMascota/RegistrarMascota.component';
 
 
 
@@ -19,11 +22,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RegistroUsuarioComponent,
     MascotasPerdidasComponent,
     MascotasEncontradasComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegistrarMascotaComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [HomeComponent, LoginComponent, RegistroUsuarioComponent, MascotasPerdidasComponent,MascotasEncontradasComponent,DashboardComponent]
+  exports: [HomeComponent, LoginComponent, RegistroUsuarioComponent, MascotasPerdidasComponent,MascotasEncontradasComponent,DashboardComponent,RegistrarMascotaComponent]
 })
 export class PagesModule { }
