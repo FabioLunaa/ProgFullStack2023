@@ -6,6 +6,8 @@ import { RegistroUsuarioComponent } from './registro.usuario/registro.usuario.co
 import { MascotasPerdidasComponent } from './MascotasPerdidas/MascotasPerdidas.component';
 import { MascotasEncontradasComponent } from './MascotasEncontradas/MascotasEncontradas.component';
 
+
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrarMascotaComponent } from './RegistrarMascota/RegistrarMascota.component';
 
