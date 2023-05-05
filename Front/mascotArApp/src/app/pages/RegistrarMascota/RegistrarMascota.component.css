@@ -1,0 +1,94 @@
+/*Registro de mascotas*/
+.photo {
+    background-image: url(https://st2.depositphotos.com/1054904/7850/i/450/depositphotos_78508482-stock-photo-black-cat.jpg);
+    background-position: 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+   
+}
+
+.registro_mascotas {
+    width: 410px;
+    height: auto;
+    border: 20px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #e6d8d6;
+    border-radius: 10px;
+}
+
+    .registro_mascotas label {
+        font-size: 16px;
+        display: block;
+        width: 100%;
+        
+    }
+
+    .registro_mascotas textarea {
+        resize: vertical;
+        max-height: 300px;
+        min-height: 100px;
+    }
+
+    .registro_mascotas input, textarea {
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid rgb(231, 198, 175);
+        border-radius: 20px;
+    }
+
+        .registro_mascotas input:focus, textarea:focus {
+            outline: none;
+        }
+
+        .registro_mascotas input[type="submit"] {
+            color: #fff;
+            border: none;
+            text-decoration: none;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+            background-size: 200% auto;
+            box-shadow: 0 00 20px rgba(0, 0, 0, .1);
+            width: 140px;
+            height: 60px;
+            display: block;
+            margin: auto;
+        }
+
+        .registro_mascotas input[type="submit"]:hover {
+            background-position: right center;
+            color: #370101;
+        }
+
+        .selects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 1em;
+        }
+
+        .registro_mascotas .form-select {
+            margin: 0 0 1em;
+        }
+
+.regis_mas h4 {
+    padding: 15px;
+    font-size: 28px;
+    font-style: italic;
+    color: #4e2714;
+    text-shadow: 3px 5px 6px #521919;
+
+}
+
+@media screen and (max-width:800px){
+    
+    .registro_mascotas {
+        width: 100%;
+        margin: 5px;
+    }
+}
+   

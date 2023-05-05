@@ -112,7 +112,7 @@ CREATE INDEX `fk_productoCarrito` ON `mascotar`.`carrito` (`idProducto` ASC) VIS
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`cola` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
+  `cola` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -123,7 +123,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`colorprincipal` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
+  `color` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -134,127 +134,17 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`colorsecundario` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
+  `color` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `mascotar`.`metodopago`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mascotar`.`metodopago` (
-  `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
--- -----------------------------------------------------
--- Table `mascotar`.`valorEstadoOrden`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mascotar`.`valorEstadoOrden` (
-  `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
--- -----------------------------------------------------
--- Table `mascotar`.`estadoOrden`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mascotar`.`estadoOrden` (
-  `id` INT(11) NOT NULL,
-  `idValorEstadoOrden` INT(11) NOT NULL,
-  `fecha` DATE NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_valorEstadoOrden-EO`
-    FOREIGN KEY (`idValorEstadoOrden`)
-    REFERENCES `mascotar`.`valorEstadoOrden` (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-CREATE INDEX `fk_valorEstadoOrden-EO` ON `mascotar`.`estadoOrden` (`idValorEstadoOrden` ASC) VISIBLE;
-
--- -----------------------------------------------------
--- Table `mascotar`.`orden`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mascotar`.`orden` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `idUsuario` INT(11) NOT NULL,
-  `idValorEstadoOrden` INT(11) NOT NULL,
-  `idMetodoPago` INT(11) NOT NULL,
-  `idProvincia` INT(11) NOT NULL,
-  `idDepartamento` INT(11) NOT NULL,
-  `direccionEnvio` VARCHAR(45) NOT NULL,
-  `total` FLOAT NOT NULL,
-  `fecha` DATE NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_departamentoOrden`
-    FOREIGN KEY (`idDepartamento`)
-    REFERENCES `mascotar`.`departamento` (`id`),
-  CONSTRAINT `fk_metodoPago`
-    FOREIGN KEY (`idMetodoPago`)
-    REFERENCES `mascotar`.`metodopago` (`id`),
-  CONSTRAINT `fk_provinciaOrden`
-    FOREIGN KEY (`idProvincia`)
-    REFERENCES `mascotar`.`provincia` (`id`),
-  CONSTRAINT `fk_usuarioOrden`
-    FOREIGN KEY (`idUsuario`)
-    REFERENCES `mascotar`.`usuario` (`id`),
-  CONSTRAINT `fk_valorEstadoOrden-O`
-    FOREIGN KEY (`idValorEstadoOrden`)
-    REFERENCES `mascotar`.`valorEstadoOrden` (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-CREATE INDEX `fk_usuarioOrden` ON `mascotar`.`orden` (`idUsuario` ASC) VISIBLE;
-
-CREATE INDEX `fk_metodoPago` ON `mascotar`.`orden` (`idMetodoPago` ASC) VISIBLE;
-
-CREATE INDEX `fk_provinciaOrden` ON `mascotar`.`orden` (`idProvincia` ASC) VISIBLE;
-
-CREATE INDEX `fk_departamentoOrden` ON `mascotar`.`orden` (`idDepartamento` ASC) VISIBLE;
-
-CREATE INDEX `fk_valorEstadoOrden-O` ON `mascotar`.`orden` (`idValorEstadoOrden` ASC) VISIBLE;
-
-
--- -----------------------------------------------------
--- Table `mascotar`.`detalleorden`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mascotar`.`detalleorden` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `idOrden` INT(11) NOT NULL,
-  `idProducto` INT(11) NOT NULL,
-  `idEstadoOrden` INT(11) NOT NULL,
-  `cantidad` INT(11) NOT NULL,
-  `precio` FLOAT NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_orden`
-    FOREIGN KEY (`idOrden`)
-    REFERENCES `mascotar`.`orden` (`id`),
-  CONSTRAINT `fk_estadoOrden`
-    FOREIGN KEY (`idEstadoOrden`)
-    REFERENCES `mascotar`.`estadoOrden` (`id`),  
-  CONSTRAINT `fk_productoOrden`
-    FOREIGN KEY (`idProducto`)
-    REFERENCES `mascotar`.`producto` (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-CREATE INDEX `fk_orden` ON `mascotar`.`detalleorden` (`idOrden` ASC) VISIBLE;
-
-CREATE INDEX `fk_productoOrden` ON `mascotar`.`detalleorden` (`idProducto` ASC) VISIBLE;
-
-CREATE INDEX `fk_estadoOrden` ON `mascotar`.`detalleorden` (`idEstadoOrden` ASC) VISIBLE;
-
 
 -- -----------------------------------------------------
 -- Table `mascotar`.`edad`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`edad` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(25) NOT NULL,
+  `edad` VARCHAR(25) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -265,18 +155,18 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`especie` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
+  `especie` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
--- Table `mascotar`.`estado`
+-- Table `mascotar`.`estadoMascota`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`estadoMascota` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
+  `estado` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -287,7 +177,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`orejas` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
+  `orejas` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -298,7 +188,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`raza` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
+  `raza` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -309,7 +199,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mascotar`.`sexo` (
   `id` INT(11) NOT NULL,
-  `nombre` VARCHAR(20) NOT NULL,
+  `sexo` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
@@ -396,6 +286,217 @@ CREATE INDEX `fk_colorSecundario` ON `mascotar`.`mascota` (`idColorSecundario` A
 CREATE INDEX `fk_orejas` ON `mascotar`.`mascota` (`idOrejas` ASC) VISIBLE;
 
 CREATE INDEX `fk_cola` ON `mascotar`.`mascota` (`idCola` ASC) VISIBLE;
+
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`metodopago`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`metodopago` (
+  `id` INT(11) NOT NULL,
+  `metodoDePago` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`valorEstadoOrden`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`valorEstadoOrden` (
+  `id` INT(11) NOT NULL,
+  `estado` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`estadoOrden`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`estadoOrden` (
+  `id` INT(11) NOT NULL,
+  `idEstado` INT(11) NOT NULL,
+  `fecha` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_estadoEO`
+    FOREIGN KEY (`idEstado`)
+    REFERENCES `mascotar`.`valorEstadoOrden` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+CREATE INDEX `fk_estadoEO` ON `mascotar`.`estadoOrden` (`idEstado` ASC) VISIBLE;
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`orden`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`orden` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `idUsuario` INT(11) NOT NULL,
+  `idEstado` INT(11) NOT NULL,
+  `idMetodoPago` INT(11) NOT NULL,
+  `idProvincia` INT(11) NOT NULL,
+  `idDepartamento` INT(11) NOT NULL,
+  `direccionEnvio` VARCHAR(45) NOT NULL,
+  `total` FLOAT NOT NULL,
+  `fecha` DATE NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_departamentoOrden`
+    FOREIGN KEY (`idDepartamento`)
+    REFERENCES `mascotar`.`departamento` (`id`),
+  CONSTRAINT `fk_metodoPago`
+    FOREIGN KEY (`idMetodoPago`)
+    REFERENCES `mascotar`.`metodopago` (`id`),
+  CONSTRAINT `fk_provinciaOrden`
+    FOREIGN KEY (`idProvincia`)
+    REFERENCES `mascotar`.`provincia` (`id`),
+  CONSTRAINT `fk_usuarioOrden`
+    FOREIGN KEY (`idUsuario`)
+    REFERENCES `mascotar`.`usuario` (`id`),
+  CONSTRAINT `fk_estadoOrden-O`
+    FOREIGN KEY (`idEstado`)
+    REFERENCES `mascotar`.`valorEstadoOrden` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+CREATE INDEX `fk_usuarioOrden` ON `mascotar`.`orden` (`idUsuario` ASC) VISIBLE;
+
+CREATE INDEX `fk_metodoPago` ON `mascotar`.`orden` (`idMetodoPago` ASC) VISIBLE;
+
+CREATE INDEX `fk_provinciaOrden` ON `mascotar`.`orden` (`idProvincia` ASC) VISIBLE;
+
+CREATE INDEX `fk_departamentoOrden` ON `mascotar`.`orden` (`idDepartamento` ASC) VISIBLE;
+
+CREATE INDEX `fk_estadoOrden-O` ON `mascotar`.`orden` (`idEstado` ASC) VISIBLE;
+
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`detalleorden`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`detalleorden` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `idOrden` INT(11) NOT NULL,
+  `idProducto` INT(11) NOT NULL,
+  `idEstado` INT(11) NOT NULL,
+  `cantidad` INT(11) NOT NULL,
+  `precio` FLOAT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_orden`
+    FOREIGN KEY (`idOrden`)
+    REFERENCES `mascotar`.`orden` (`id`),
+  CONSTRAINT `fk_estadoOrden`
+    FOREIGN KEY (`idEstado`)
+    REFERENCES `mascotar`.`estadoOrden` (`id`),  
+  CONSTRAINT `fk_productoDO`
+    FOREIGN KEY (`idProducto`)
+    REFERENCES `mascotar`.`producto` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+CREATE INDEX `fk_orden` ON `mascotar`.`detalleorden` (`idOrden` ASC) VISIBLE;
+
+CREATE INDEX `fk_productoDO` ON `mascotar`.`detalleorden` (`idProducto` ASC) VISIBLE;
+
+CREATE INDEX `fk_estadoOrden` ON `mascotar`.`detalleorden` (`idEstado` ASC) VISIBLE;
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`proveedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`proveedor` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(25) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `telefono` INT(11) NOT NULL,
+  `direccion` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`compra`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`compra` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `idProveedor` INT(11) NOT NULL,
+  `fecha` DATE NULL DEFAULT NULL,
+  `monto` FLOAT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_proveedor`
+    FOREIGN KEY (`idProveedor`)
+    REFERENCES `mascotar`.`proveedor` (`id`))
+
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+CREATE INDEX `fk_proveedor` ON `mascotar`.`compra` (`idProveedor` ASC) VISIBLE;
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`detallecompra`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`detallecompra` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `idCompra` INT(11) NOT NULL,
+  `idProducto` INT(11) NOT NULL,
+  `cantidad` INT(11) NOT NULL,
+  `precio` FLOAT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_compra`
+    FOREIGN KEY (`idCompra`)
+    REFERENCES `mascotar`.`compra` (`id`),
+  CONSTRAINT `fk_producto`
+    FOREIGN KEY (`idProducto`)
+    REFERENCES `mascotar`.`producto` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+CREATE INDEX `fk_compra` ON `mascotar`.`detallecompra` (`idCompra` ASC) VISIBLE;
+
+CREATE INDEX `fk_productoDC` ON `mascotar`.`detallecompra` (`idProducto` ASC) VISIBLE;
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`tipoMovimieto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`tipoMovimiento` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `movimiento` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+-- -----------------------------------------------------
+-- Table `mascotar`.`inventario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mascotar`.`inventario` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `idDetalleOrden` INT(11),
+  `idDetalleCompra` INT(11),
+  `idProducto` INT(11) NOT NULL,
+  `idTipo` INT(11) NOT NULL,
+  `concepto` VARCHAR(45) NOT NULL,
+  `cantidad` INT(11) NOT NULL,
+  `stock` INT(11) NOT NULL,
+  CONSTRAINT CHK_inventario CHECK ((idDetalleOrden != NULL AND idDetalleCompra <=> NULL) OR (idDetalleCompra != NULL AND idDetalleOrden <=> NULL)),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_detalleorden`
+    FOREIGN KEY (`idDetalleOrden`)
+    REFERENCES `mascotar`.`detalleorden` (`id`),
+  CONSTRAINT `fk_detallecompra`
+    FOREIGN KEY (`idDetalleCompra`)
+    REFERENCES `mascotar`.`detallecompra` (`id`),
+  CONSTRAINT `fk_productoInventario`
+    FOREIGN KEY (`idProducto`)
+    REFERENCES `mascotar`.`producto` (`id`),
+  CONSTRAINT `fk_tipoInventario`
+    FOREIGN KEY (`idTipo`)
+    REFERENCES `mascotar`.`tipomovimiento` (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+CREATE INDEX `fk_detalleorden` ON `mascotar`.`inventario` (`idDetalleOrden` ASC) VISIBLE;
+
+CREATE INDEX `fk_detallecompra` ON `mascotar`.`inventario` (`idDetalleCompra` ASC) VISIBLE;
+
+CREATE INDEX `fk_productoInventario` ON `mascotar`.`inventario` (`idProducto` ASC) VISIBLE;
+
+CREATE INDEX `fk_tipoInventario` ON `mascotar`.`inventario` (`idTipo` ASC) VISIBLE;
+
 -- -----------------------------------------------------
 -- Table `mascotar`.`mensaje`
 -- -----------------------------------------------------
