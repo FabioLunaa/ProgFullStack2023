@@ -5,11 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { RegistroUsuarioComponent } from './registro.usuario/registro.usuario.component';
 import { MascotasPerdidasComponent } from './MascotasPerdidas/MascotasPerdidas.component';
 import { MascotasEncontradasComponent } from './MascotasEncontradas/MascotasEncontradas.component';
-
-
-
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrarMascotaComponent } from './RegistrarMascota/RegistrarMascota.component';
+import { MascotasAdopcionComponent } from './MascotasAdopcion/MascotasAdopcion.component';
 
 
 
@@ -23,11 +21,12 @@ import { RegistrarMascotaComponent } from './RegistrarMascota/RegistrarMascota.c
     MascotasPerdidasComponent,
     MascotasEncontradasComponent,
     DashboardComponent,
-    RegistrarMascotaComponent
+    RegistrarMascotaComponent,
+    MascotasAdopcionComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [HomeComponent, LoginComponent, RegistroUsuarioComponent, MascotasPerdidasComponent,MascotasEncontradasComponent,DashboardComponent,RegistrarMascotaComponent]
+  exports: [HomeComponent, LoginComponent, RegistroUsuarioComponent, MascotasPerdidasComponent,MascotasEncontradasComponent,DashboardComponent,RegistrarMascotaComponent,MascotasAdopcionComponent]
 })
 export class PagesModule { }
