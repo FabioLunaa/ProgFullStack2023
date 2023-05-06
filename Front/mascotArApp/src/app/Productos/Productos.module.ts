@@ -8,11 +8,9 @@ import { FinalizarCompraComponent } from './FinalizarCompra/FinalizarCompra.comp
 
 @NgModule({
   imports: [
-    CommonModule,
-    VerProductosComponent,
-    CarritoComponent,
-    FinalizarCompraComponent
+    CommonModule
   ],
-  declarations: [ProductosComponent,VerProductosComponent,CarritoComponent,FinalizarCompraComponent]
+  declarations: [ProductosComponent, VerProductosComponent, CarritoComponent, FinalizarCompraComponent]
 })
 export class ProductosModule { }
+

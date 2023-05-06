@@ -1,19 +1,18 @@
 <header class="despleg">
     <nav class="dws_menu">
-        <a href="index.html"><img src="../../../assets/imagen/logo.png" alt="logo"></a>
-
+        <a routerLink="/home"><img src="../../../assets/imagen/logo.png" alt="logo"></a>
         <input type="checkbox" name="toggle" id="menu" class="toggleMenu">
         <label for="menu" class="toggleMenu"><i class="fa-regular fa-bars"></i>Menu</label>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a routerLink="/home">Inicio</a></li>
             <li>
                 <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m1" >
                 <a href="#">Buscador de mascotas</a>
                 <label for="sub_m1" class="toggleSubmenu"><i class="fa"></i></label>
                 <ul>
-                    <li><a href="./Frontend/view/perdidos.html">Mascotas perdidas</a></li>
-                    <li><a href="./Frontend/view/encontrados.html">Mascotas encontradas</a></li>
-                    <li><a href="./Frontend/view/registromascotas.html">Registrar una mascota</a></li>
+                    <li><a routerLink="/mascotas-perdidas" routerLinkActive="router-link-active" >Mascotas perdidas</a></li>
+                    <li><a routerLink="/mascotas-encontradas">Mascotas Encontradas</a></li>
+                    <li><a routerLink="/registrar-mascota">Registrar una mascota</a></li>
                  </ul>
                 </li>
             <li><a href="./Frontend/view/MascotAdopcion.html">Mascotas en adopción</a></li>
