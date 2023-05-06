@@ -5,12 +5,24 @@ import { MascotasEncontradasComponent } from './pages/MascotasEncontradas/Mascot
 import { MascotasPerdidasComponent } from './pages/MascotasPerdidas/MascotasPerdidas.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegistrarMascotaComponent } from './pages/RegistrarMascota/RegistrarMascota.component';
+import { MascotasAdopcionComponent } from './pages/MascotasAdopcion/MascotasAdopcion.component';
+import { VerProductosComponent } from './Productos/VerProductos/VerProductos.component';
+import { CarritoComponent } from './Productos/Carrito/Carrito.component';
+import { FinalizarCompraComponent } from './Productos/FinalizarCompra/FinalizarCompra.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistroUsuarioComponent } from './pages/registro.usuario/registro.usuario.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'mascotas-encontradas', component: MascotasEncontradasComponent },
   { path: 'mascotas-perdidas', component: MascotasPerdidasComponent },
   { path: 'registrar-mascota', component: RegistrarMascotaComponent},
+  { path: 'mascota-adopcion', component: MascotasAdopcionComponent},
+  { path: 'ver-productos', component: VerProductosComponent},
+  { path: 'carrito', component: CarritoComponent},
+  { path: 'finalizar-compra', component: FinalizarCompraComponent},
+  { path: 'iniciar-sesion', component: LoginComponent},
+  { path: 'registrarse', component: RegistroUsuarioComponent},
 ];
 
 @NgModule({
