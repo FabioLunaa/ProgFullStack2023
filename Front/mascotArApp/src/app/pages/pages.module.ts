@@ -8,6 +8,7 @@ import { MascotasEncontradasComponent } from './MascotasEncontradas/MascotasEnco
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegistrarMascotaComponent } from './RegistrarMascota/RegistrarMascota.component';
 import { MascotasAdopcionComponent } from './MascotasAdopcion/MascotasAdopcion.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 
@@ -22,7 +23,8 @@ import { MascotasAdopcionComponent } from './MascotasAdopcion/MascotasAdopcion.c
     MascotasEncontradasComponent,
     DashboardComponent,
     RegistrarMascotaComponent,
-    MascotasAdopcionComponent
+    MascotasAdopcionComponent,
+    ContactoComponent
   ],
   imports: [
     CommonModule
