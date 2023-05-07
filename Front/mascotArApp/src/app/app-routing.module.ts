@@ -11,6 +11,7 @@ import { CarritoComponent } from './Productos/Carrito/Carrito.component';
 import { FinalizarCompraComponent } from './Productos/FinalizarCompra/FinalizarCompra.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroUsuarioComponent } from './pages/registro.usuario/registro.usuario.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'finalizar-compra', component: FinalizarCompraComponent},
   { path: 'iniciar-sesion', component: LoginComponent},
   { path: 'registrarse', component: RegistroUsuarioComponent},
+  { path: 'contacto', component: ContactoComponent}
 ];
 
 @NgModule({
