@@ -70,10 +70,7 @@
 .social-login-element:hover {
     background-color: #fff;
 }
-.login-info-container > p {
-    font-size: 1.25em;
-    margin-top: 1.5em;
-}
+
 .inputs-container {
     height: 55%;
     width: 85%;
@@ -82,6 +79,10 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 5rem;
+}
+.login-info-container > p {
+    font-size: 1.25em;
+    margin-top: 1.5em;
 }
 .input, .btn {
     width: 90%;
