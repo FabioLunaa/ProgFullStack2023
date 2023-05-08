@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MascotasEncontradasComponent } from './pages/MascotasEncontradas/MascotasEncontradas.component';
 import { MascotasPerdidasComponent } from './pages/MascotasPerdidas/MascotasPerdidas.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -24,7 +23,8 @@ const routes: Routes = [
   { path: 'finalizar-compra', component: FinalizarCompraComponent},
   { path: 'iniciar-sesion', component: LoginComponent},
   { path: 'registrarse', component: RegistroUsuarioComponent},
-  { path: 'contacto', component: ContactoComponent}
+  { path: 'contacto', component: ContactoComponent},
+  { path: 'dashboard', redirectTo: 'iniciar-sesion', pathMatch: 'full'}
 ];
 
 @NgModule({
