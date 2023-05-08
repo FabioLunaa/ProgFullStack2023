@@ -1,0 +1,41 @@
+<header class="despleg">
+    <nav class="dws_menu">
+        <a routerLink="/home"><img src="../../../assets/imagenes/logo.png" alt="logo"></a>
+        <input type="checkbox" name="toggle" id="menu" class="toggleMenu">
+        <label for="menu" class="toggleMenu"><i class="fa-regular fa-bars"></i>Menu</label>
+        <ul>
+            <li><a routerLink="/home">Inicio</a></li>
+            <li>
+                <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m1" >
+                <a routerLink="/mascotas-perdidas">Buscador de mascotas</a>
+                <label for="sub_m1" class="toggleSubmenu"><i class="fa"></i></label>
+                <ul>
+                    <li><a routerLink="/mascotas-perdidas">Mascotas perdidas</a></li>
+                    <li><a routerLink="/mascotas-encontradas">Mascotas Encontradas</a></li>
+                    <li><a routerLink="/registrar-mascota">Registrar una mascota</a></li>
+                 </ul>
+                </li>
+            <li><a routerLink="/mascota-adopcion">Mascotas en adopción</a></li>
+            <li>	
+                <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m2">
+                <a routerLink="/ver-productos">Productos</a>
+                <label for="sub_m2" class="toggleSubmenu"><i class="fa"></i></label>
+                <ul>
+                    <li><a routerLink="/ver-productos">ver Productos</a></li>
+                    <li><a routerLink="/carrito">Carrito</a></li>
+                    <li><a routerLink="/finalizar-compra">Finalizar la compra</a></li>
+                </ul>
+            </li>
+            <li><a routerLink="/contacto">Contáctanos</a></li>
+            <li>
+                <input type="checkbox" name="toggle" class="toggleSubmenu" id="sub_m3">
+                <a routerLink="/iniciar-sesion">Log In</a>
+                <label for="sub_m3" class="toggleSubmenu"><i class="fa"></i></label>
+                <ul>
+                    <li><a routerLink="/iniciar-sesion">Login</a></li>
+                    <li><a routerLink="/registrarse">Registro</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>	
+</header>

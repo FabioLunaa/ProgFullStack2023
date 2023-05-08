@@ -1,0 +1,76 @@
+<form onsubmit="return validarFormulario();" method="post">
+  <div class="fin_de_compra">
+
+  <fieldset class="finalizar">
+   <legend>Elije opción de envío y pago</legend>
+   <label>Método de envío:</label>
+   <select name="Metodo de envío" id="envio">
+      <option value="">Seleccionar...</option> 
+      <option value="Retiro en tienda">Retiro en tienda</option>
+      <option value="Envío a domicilio">Envío a domicilio</option>
+   </select>
+   
+<p>
+<label>Dirección</label>
+   <input type="tel" name="Dirección" id="direccion" size="26px">
+</p>
+<p>
+   <label>Código postal</label>
+       <input type="tel" name="Código Postal" id="codigopostal" size="26px">
+   </p>
+<p>
+  <label for="Provincia">Provincia:
+      <select class="provincias" name="Provincia" aria-label="Default select example" oninput="getDepartamentos()" required>
+          <option value="">Seleccionar...</option>
+      </select>
+  </label>
+  
+  <label for="Departamento">Departamento:
+      <select class="departamentos" name="Departamento" aria-label="Default select example" disabled required>
+          <option value="">Seleccionar...</option>
+      </select>
+  </label>
+
+
+
+   <label>Forma de Pago:</label>
+   <select name="Forma de Pago" id="pago">
+      <option value="">Seleccionar...</option> 
+      <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+       <option value="MercadoPago">MercadoPago</option>
+   </select>
+
+<p>
+  <input type="submit" value="ENVIAR"/>
+</p>    
+</fieldset>
+  </div>
+</form>
+<footer class="pie-pagina">
+<div class="grupo-1">
+  <div class="box">
+      <figure>
+          <a href="#">
+              <img src="../../../assets/imagenes/logo.png" alt= "Logo de MascotAR">
+          </a>
+      </figure>
+  </div>
+  <div class="box">
+      <h2>SOBRE NOSOTROS</h2>
+      <p>Nuestra misión es el bienestar de los animales, el objetivo principal  de este espacio es ayudar a los animales domésticos, brindando la posibilidad a que se pueden realizar publicaciones de mascotas perdidas o encontradas, con el fin de lograr el reencuentro con sus familias; o también de encontrar una a aquellos que no la tengan.</p>
+      <p><b>"Los animales no son propiedades o cosas,sino seres vivos que merecen nuestra compasión,respeto,amistad y apoyo"</b></p>
+  </div>
+
+  <div class="box">
+      <h2>SEGUINOS</h2>
+      <div class="red-social">
+          <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+          <a href="https://www.instagram.com" class="fa fa-instagram"></a>
+          <a href="https://twitter.com" class="fa fa-twitter"></a>
+          <a href="https://www.youtube.com" class="fa fa-youtube"></a>
+      </div>
+  </div>
+</div>
+<div class="grupo-2">
+  <small>&copy; 2022 <b>MascotAR</b> - Todos los Derechos Reservados - Desarrollado por <b>Optimus WEB</b></small>
+</div>
