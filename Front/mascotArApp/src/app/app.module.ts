@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     RouterModule,
     AppRoutingModule,
     PagesModule,
-    ProductosModule
+    ProductosModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
