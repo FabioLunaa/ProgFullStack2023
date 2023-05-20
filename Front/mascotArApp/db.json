@@ -1,0 +1,20 @@
+{
+  "items": [
+    
+      {"producto": "Dog chow perros 20 kg", "precio":"8500"},
+      {"producto": "Exellent gatos 7kg", "precio": "7000"},
+      {"producto": "SmarPET perros 20 kg", "precio":"4000"},
+      {"producto": "Cat chow gatos 10kg", "precio": "2000"},
+      {"producto": "Bandeja sanitaria", "precio":"1600"},
+      {"producto": "Piedritas sanitarias 1kg", "precio": "500"}
+    
+  ],
+
+  "pets": [
+      {"mascota": "perro", "sexo":"M" , "datos/descripción":"Mestizo aproximadamente 4 años,color marrón,tamaño mediano"},
+      {"mascota": "perro", "sexo":"H" , "datos/descripción":"Bullterrier aproximadamente 2 años,color blanca,tamaño mediano"},
+      {"mascota": "perro", "sexo":"M" , "datos/descripción":"Labrador aproximadamente 10 años,color arena,tamaño grande"},
+      {"mascota": "gato", "sexo":"M" , "datos/descripción":"Mestizo aproximadamente 2 años,color marrón atigrado,tamaño chico"}
+ 
+    ]
+}

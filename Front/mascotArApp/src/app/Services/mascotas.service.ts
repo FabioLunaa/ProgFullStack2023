@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MascotasService {
+  mascotaUrl: string = 'http://localhost:3000/'
   pets: any[] = [];
 
   constructor(private http: HttpClient ) { }
