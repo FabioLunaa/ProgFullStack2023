@@ -6,15 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CarritoService {
-  carritoUrl:string ='http://localhost:3000/';
-
-  items: any[] = [];
-
+  carritoUrl:String ='http://localhost:3000/';
+  items: any;
 
   constructor(private http: HttpClient) { }
+
+  ObtenerProductos(): Observable <any>{
+    return this.http.get(this.carritoUrl + "items")
+  }
   
   
-  addToCarrito({ item }: { item: any; }): void {
+  addToCarrito({ item }: { item: any }): void {
     this.items.push(item);
   }
 

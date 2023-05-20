@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,10 @@ export class MascotasService {
   pets: any[] = [];
 
   constructor(private http: HttpClient ) { }
+
+  ListaDeMascotas(): Observable <any>{
+    return this.http.get(this.mascotaUrl + "pets")
+  }
 
   addMascotas(mascotas: any): void {
     this.pets.push(mascotas);
