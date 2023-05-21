@@ -7,24 +7,19 @@ import { MascotasService } from 'src/app/Services/mascotas.service';
   styleUrls: ['./MascotasAdopcion.component.css']
 })
 export class MascotasAdopcionComponent implements OnInit {
+  mostrarMascotas: boolean = true;
   pets: any;
 
-  constructor(private mascotas: MascotasService) 
-  { 
-    this.mascotas.ListaDeMascotas().subscribe({
-      next:(listarMascotas) => {
-      this.pets=listarMascotas
-    
-    },
-    error: (errorData) => {
-      console.error(errorData);
-    }              
-    
-    });
+  constructor(private mascotas: MascotasService) { }
   
-    
-  };
-  ngOnInit() {
+  ngOnInit(): void {
+    this.mascotas.ObtenerMascotas().subscribe(
+      (data) => {
+        this.pets = data.pets;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
-
 }

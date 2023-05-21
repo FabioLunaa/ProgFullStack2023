@@ -6,6 +6,12 @@
       {"producto": "Cat chow gatos 10kg", "precio": "2000", "cantidad":"5"},
       {"producto": "Bandeja sanitaria", "precio": "1600", "cantidad":"7"},
       {"producto": "Piedritas sanitarias 1kg", "precio": "500", "cantidad":"1"}
+    ],
+    "pets": [
+      {"mascota": "Perro", "sexo":"M" , "datos":"Mestizo aproximadamente 4 años, color marrón, tamaño mediano"},
+      {"mascota": "Perro", "sexo":"H" , "datos":"Bullterrier aproximadamente 2 años, color blanca, tamaño mediano"},
+      {"mascota": "Perro", "sexo":"M" , "datos":"Labrador aproximadamente 10 años, color arena, tamaño grande"},
+      {"mascota": "Gato", "sexo":"M" , "datos":"Mestizo aproximadamente 2 años, color marrón atigrado, tamaño chico"}
     ]
   }
   

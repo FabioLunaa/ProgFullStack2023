@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CarritoService {
-  carritoUrl: string = '/assets/data/carrito.json';
+  dbUrl: string = '/assets/data/db.json';
 
   constructor(private http: HttpClient) { }
 
   ObtenerProductos(): Observable<any> {
-    return this.http.get(this.carritoUrl);
+    return this.http.get(this.dbUrl);
   }
 }

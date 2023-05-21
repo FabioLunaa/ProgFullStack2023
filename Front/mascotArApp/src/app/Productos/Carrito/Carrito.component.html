@@ -23,18 +23,3 @@
 <div class="fin--container" id="fin--container">
   <button class="btn fin" id="fin">Finalizar la compra</button>
 </div> 
-
-<table *ngIf="mostrarItems" class="table">
-  <thead>
-    <tr>
-      <th>Producto</th>
-      <th>Precio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of items">
-      <td>{{ item.producto }}</td>
-      <td>{{ item.precio }}</td>
-    </tr>
-  </tbody>
-</table>
