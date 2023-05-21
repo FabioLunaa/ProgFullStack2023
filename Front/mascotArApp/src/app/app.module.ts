@@ -25,7 +25,7 @@ import { ApiService } from './Services/api.service';
     ProductosModule,
     HttpClientModule
   ],
-  providers: [ApiService, CarritoService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

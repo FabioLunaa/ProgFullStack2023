@@ -7,6 +7,7 @@ import { CarritoService } from 'src/app/Services/carrito.service';
   styleUrls: ['./Carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
+  mostrarCarrito: boolean=true;
   items: any;
 
   constructor(private carrito:CarritoService) 
