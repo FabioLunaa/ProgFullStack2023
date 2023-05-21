@@ -9,6 +9,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ApiService } from './Services/api.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ProductosModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService, CarritoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
