@@ -7,30 +7,19 @@ import { CarritoService } from 'src/app/Services/carrito.service';
   styleUrls: ['./Carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
-  mostrarCarrito: boolean=true;
+  mostrarItems: boolean = true;
   items: any;
 
-  constructor(private carrito:CarritoService) 
-  { 
-    this.carrito.ObtenerProductos().subscribe({
-      next:(listaProducto) => {
-      this.items=listaProducto
-    
-    },
-    error: (errorData) => {
-      console.error(errorData);
-    }              
-    
-    });
+  constructor(private carrito: CarritoService) { }
   
-    
-  };
-
-  
-  
-
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.carrito.ObtenerProductos().subscribe(
+      (data) => {
+        this.items = data.items;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
-
 }

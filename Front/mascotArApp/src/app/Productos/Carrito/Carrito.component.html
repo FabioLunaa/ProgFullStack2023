@@ -1,23 +1,40 @@
 <div id="container--carrito" class="container--carrito">
   <div class="productos descripcion">
-      <p class="producto">Producto</p>
-      <p class="precio">Precio</p>
-      <p id="quantity">Cantidad</p>
+    <div class="cart--container">
+    <p class="producto">Producto</p>
+    <p *ngFor="let item of items">
+      <span class="item">{{ item.producto }}</span>
+      </p>
+    </div>
+    <div class="cart--container">
+    <p class="precio">Precio</p>
+      <p *ngFor="let item of items">
+      <span class="item">{{ item.precio|currency }}</span>
+      </p>
+    </div>
+    <div class="cart--container">
+    <p id="quantity">Cantidad</p>
+      <p *ngFor="let item of items">
+      <span class="item">{{ item.cantidad }}</span>
+      </p>
+    </div>
   </div>  
 </div>
 <div class="fin--container" id="fin--container">
   <button class="btn fin" id="fin">Finalizar la compra</button>
 </div> 
 
-<!-- <table *ngFor="mostrarCarrito" class="table">
+<table *ngIf="mostrarItems" class="table">
   <thead>
-    <th>asd</th>
-    <th>dsa</th>
+    <tr>
+      <th>Producto</th>
+      <th>Precio</th>
+    </tr>
   </thead>
   <tbody>
-    <tr *ngFor= let element of items>
-      <td> {{element.producto}}</td>
-      <td> {{element.precio|currency}}</td>
+    <tr *ngFor="let item of items">
+      <td>{{ item.producto }}</td>
+      <td>{{ item.precio }}</td>
     </tr>
   </tbody>
-</table> -->
+</table>

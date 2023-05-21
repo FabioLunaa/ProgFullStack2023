@@ -11,6 +11,7 @@ import { FinalizarCompraComponent } from './Productos/FinalizarCompra/FinalizarC
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroUsuarioComponent } from './pages/registro.usuario/registro.usuario.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { CarritoService } from './Services/carrito.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
