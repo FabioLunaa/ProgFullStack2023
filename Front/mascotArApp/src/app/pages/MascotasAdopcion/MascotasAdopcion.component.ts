@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { MascotasService } from 'src/app/Services/mascotas.service';
 
 @Component({
   selector: 'app-MascotasAdopcion',
@@ -8,33 +7,23 @@ import { Observable } from 'rxjs';
   styleUrls: ['./MascotasAdopcion.component.css']
 })
 export class MascotasAdopcionComponent implements OnInit {
+  pets: any;
 
-  pets: any[] = [];
-  mascotaUrl: string | undefined;
-
-  constructor(private http: HttpClient ) { }
-
-  ListaDeMascotas(): Observable <any>{
-    return this.http.get(this.mascotaUrl + "pets")
-  }
-
-  addMascotas(mascotas: any): void {
-    this.pets.push(mascotas);
-  }
-  removeMascotas(mascotas: any): void {
-    const index = this.pets.indexOf(mascotas);
-    if (index > -1) {
-      this.pets.splice(index, 1);
-
-    }
-  }
-  getMascotas(): any[] {
-    return this.pets;
-  }
-  clearMascotas(): void {
-    this.pets = [];
-  }
-
+  constructor(private mascotas: MascotasService) 
+  { 
+    this.mascotas.ListaDeMascotas().subscribe({
+      next:(listarMascotas) => {
+      this.pets=listarMascotas
+    
+    },
+    error: (errorData) => {
+      console.error(errorData);
+    }              
+    
+    });
+  
+    
+  };
   ngOnInit() {
   }
 
