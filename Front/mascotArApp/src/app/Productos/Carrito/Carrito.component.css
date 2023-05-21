@@ -143,3 +143,12 @@
         padding: 0;
     }
 }
+.cart--container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.item{
+    background: #ffffff6e;
+}
