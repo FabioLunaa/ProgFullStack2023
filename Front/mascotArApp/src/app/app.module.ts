@@ -10,6 +10,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiService } from './Services/api.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ApiService } from './Services/api.service';
     AppRoutingModule,
     PagesModule,
     ProductosModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
