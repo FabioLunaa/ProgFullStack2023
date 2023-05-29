@@ -8,6 +8,7 @@ import { MascotasEncontradasComponent } from './MascotasEncontradas/MascotasEnco
 import { RegistrarMascotaComponent } from './RegistrarMascota/RegistrarMascota.component';
 import { MascotasAdopcionComponent } from './MascotasAdopcion/MascotasAdopcion.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     ContactoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [HomeComponent, LoginComponent, RegistroUsuarioComponent, MascotasPerdidasComponent,MascotasEncontradasComponent,RegistrarMascotaComponent,MascotasAdopcionComponent]
 })
