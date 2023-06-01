@@ -19,21 +19,45 @@
           </div>
       </div>
       
-
-      <form action="" method="post" class="inputs-container" id="form" onsubmit="return validar();">
-
-          <input class="input" type="text" placeholder="Nombre" id="nombre" required >
-          <input class="input" type="text" placeholder="Telefono" id="telefono" required >
-          <input class="input" type="email" placeholder="Correo" id="email" required >
-          <input class="input" type="password" placeholder="Contraseña" id="password" required>
+      <form [formGroup]="registroUForm" (ngSubmit)="registroU()" class="inputs-container">
+        
+        <input class="input" type="nombre" placeholder="nombre" formControlName="nombre">
+          <div *ngIf="registroUForm.controls['nombre'].invalid && (registroUForm.controls['nombre'].dirty || registroUForm.controls['nombre'].touched)" class="text-danger">
+            <div *ngIf="registroUForm.controls['nombre'].errors?.['required']">
+              El Nombre es requerido.
+            </div>
+          </div>
+          <input class="telefono" type="telefono" placeholder="telefono" formControlName="telefono">
+            <div *ngIf="registroUForm.controls['telefono'].invalid && (registroUForm.controls['telefono'].dirty || registroUForm.controls['telefono'].touched)" class="text-danger">
+              <div *ngIf="registroUForm.controls['telefono'].errors?.['required']">
+                El Telefono es requerido.
+              </div>
+            </div>      
+          <input class="input" type="email" placeholder="Correo" formControlName="email">
+          <div *ngIf="registroUForm.controls['email'].invalid && (registroUForm.controls['email'].dirty || registroUForm.controls['email'].touched)" class="text-danger">
+            <div *ngIf="registroUForm.controls['email'].errors?.['required']">
+              El Email es requerido.
+            </div>
+            <div *ngIf="registroUForm.controls['email'].errors?.['email']">
+              El Email debe tener un formato válido.
+            </div>
+          </div>
+          <input class="input" type="password" placeholder="Contraseña" formControlName="password">
+          <div *ngIf="registroUForm.controls['password'].invalid && (registroUForm.controls['password'].dirty || registroUForm.controls['password'].touched)" class="text-danger">
+            <div *ngIf="registroUForm.controls['password'].errors?.['required']">
+              La contraseña es requerida.
+            </div>
+        </div>
+        <div>
           <select class="input form-select provincias" name="Provincia" aria-label="Default select example" oninput="getDepartamentos()" required>
-             <option selected>Provincia</option>
-          </select>
-          <select class="input form-select departamentos" name="Departamento" aria-label="Default select example" disabled required>
-             <option selected>Departamento</option>
-          </select>
-          <button type="submit" class="btn">Registrarse</button>
-          <p class="warnings" id="warnings"></p>
+            <option selected>Provincia</option>
+        </select>
+        <select class="input form-select departamentos" name="Departamento" aria-label="Default select example" disabled required>
+            <option selected>Departamento</option>
+        </select>
+        </div>
+
+        <button type="submit" class="btn" [disabled]="registroUForm.invalid">Registrarse</button>
 
       </form>
     </div>
