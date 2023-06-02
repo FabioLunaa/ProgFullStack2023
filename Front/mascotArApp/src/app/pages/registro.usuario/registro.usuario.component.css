@@ -10,12 +10,12 @@
     padding: 0.5em;
     border-radius: 10px;
     font-weight: 600;
-    margin: 20px;
+    margin-top: 20px;
 }
 
 .social-login-element {
     width: 12.5rem;
-    height: 3.75rem;
+    height: 2.75rem;
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -24,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5rem ;
+    margin-bottom: 150px;
 }
 .social-login-element img {
     width: 1.875rem;
@@ -32,9 +32,10 @@
     position: relative;
     top: 0;
     left: -0.625rem;
+    
 }
 button, input, optgroup, select, textarea {
-    margin: 0;
+    margin: 1rem;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -42,10 +43,11 @@ button, input, optgroup, select, textarea {
 
 input, textarea {
     width: 100%;
-    margin-bottom: 2rem;
-    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
     border-color: #cdc76b;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 }
 .social-login-element:hover {
     background-color: #fff;
@@ -55,6 +57,7 @@ input, textarea {
     display: flex;
     justify-content: space-evenly;
     cursor: pointer;
+    margin: 12px; 
 }
 .login-container {
     height: 43.75em;
@@ -106,11 +109,12 @@ input, textarea {
     font-weight: 600;
     letter-spacing: 1px;
     box-sizing: border-box;
-    margin-top: -0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 input, textarea {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 0.3rem;
     padding: 0.5rem;
     border-color: #cdc76b;
     border-radius: 0.5rem;
@@ -125,8 +129,10 @@ input, textarea {
     border: #370101;
     padding: 12px;
     color: white;
-    margin: 16px 0;
+    margin: 16px ;
     font-size: 16px;
+    margin-bottom: 5rem;
+    margin-top: 0.5rem;
 }
 .inputs-container p {
     margin: 1rem;

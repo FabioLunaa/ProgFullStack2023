@@ -1,4 +1,4 @@
-:root {
+  :root {
     --login-bg: #f8e5ac;
     --title-bg: #9089cc;
     --button-bg: #674baf;
@@ -128,8 +128,7 @@ input, textarea {
 
 .login-container select {
     margin-bottom: 32px;
-}
-
+}  
 @media screen and (max-width: 1000px) {
     .login-container {
         width: 70%;

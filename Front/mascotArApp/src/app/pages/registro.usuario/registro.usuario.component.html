@@ -24,10 +24,10 @@
         <input class="input" type="nombre" placeholder="nombre" formControlName="nombre">
           <div *ngIf="registroUForm.controls['nombre'].invalid && (registroUForm.controls['nombre'].dirty || registroUForm.controls['nombre'].touched)" class="text-danger">
             <div *ngIf="registroUForm.controls['nombre'].errors?.['required']">
-              El Nombre es requerido.
+              Nombre requerido.
             </div>
           </div>
-          <input class="telefono" type="telefono" placeholder="telefono" formControlName="telefono">
+          <input class="input" type="telefono" placeholder="Telefono" formControlName="telefono">
             <div *ngIf="registroUForm.controls['telefono'].invalid && (registroUForm.controls['telefono'].dirty || registroUForm.controls['telefono'].touched)" class="text-danger">
               <div *ngIf="registroUForm.controls['telefono'].errors?.['required']">
                 El Telefono es requerido.
