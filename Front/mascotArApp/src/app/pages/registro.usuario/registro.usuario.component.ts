@@ -46,6 +46,6 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   registerUser(userData: any) {
-    return this.http.post('https://localhost:8000/signup', userData);
+    return this.http.post('/signup/', userData);
   }
 }
