@@ -1,7 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm=this.formBuilder.group({
-    email: ['email@email.com', [Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
 
   })
 
-  constructor(private formBuilder:FormBuilder, private router:Router) { }
+  constructor(private formBuilder:FormBuilder, private router:Router, private http: HttpClient) { }
 
   ngOnInit(): void {
    
@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
       alert("Error al ingresar los datos")
     }
   }
-
+  registerUser(userData: any) {
+    return this.http.post('http://127.0.0.1:8000/signup', userData);
+  }
   
 }
-
