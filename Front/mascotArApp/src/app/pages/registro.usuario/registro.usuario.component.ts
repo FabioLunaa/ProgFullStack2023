@@ -33,10 +33,6 @@ export class RegistroUsuarioComponent implements OnInit {
             console.log(response);
             this.router.navigateByUrl('/inicio');
             this.registroUForm.reset();
-          },
-          error => {
-            console.log(error);
-            alert("Error al registrar el usuario");
           }
         );
     } else {
@@ -46,6 +42,6 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   registerUser(userData: any) {
-    return this.http.post('https://localhost:8000/signup', userData);
+    return this.http.post('https://localhost:8000/api/auth/register/', userData);
   }
 }
