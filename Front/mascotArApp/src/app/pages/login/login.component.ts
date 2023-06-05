@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     }
   }
   registerUser(userData: any) {
-    return this.http.post('http://127.0.0.1:8000/signup', userData);
+    return this.http.post('http://localhost:8000/api/auth/login/', userData);
   }
   
 }
