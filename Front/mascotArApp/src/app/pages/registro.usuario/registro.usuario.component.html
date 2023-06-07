@@ -2,7 +2,7 @@
 <div class="login-container">
     <div class="login-info-container">
       <h1 class="title">Registro</h1>
-      <div class="social-login">
+      <!-- <div class="social-login">
           <div class="social-login-element">
             <a href="https://www.google.com.ar/?hl=es" target="_blank" style="text-decoration:none"> <img src="../../../assets/imagenes/google.svg" alt="google-image">
 
@@ -17,7 +17,7 @@
                 <span> Facebook</span>
             </a>
           </div>
-      </div>
+      </div> -->
       
       <form [formGroup]="registroUForm" (ngSubmit)="registroU()" class="inputs-container">
         
@@ -48,14 +48,14 @@
               La contraseña es requerida.
             </div>
         </div>
-        <div>
+        <!-- <div>
           <select class="input form-select provincias" name="Provincia" aria-label="Default select example" oninput="getDepartamentos()" required>
             <option selected>Provincia</option>
         </select>
         <select class="input form-select departamentos" name="Departamento" aria-label="Default select example" disabled required>
             <option selected>Departamento</option>
         </select>
-        </div>
+        </div> -->
 
         <button type="submit" class="btn" [disabled]="registroUForm.invalid">Registrarse</button>
 
