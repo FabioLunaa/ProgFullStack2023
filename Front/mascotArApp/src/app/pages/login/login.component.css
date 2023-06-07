@@ -36,39 +36,11 @@
     text-align: center;
     border: 0.1em solid #370101;
     background-color: #e5e9dc;
-    padding: 0.5em;
+    padding: 0.3em;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight:400;
+    font-size: 24px;
     margin: 20px;
-}
-
-.social-login {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    cursor: pointer;
-}
-.social-login-element {
-    width: 12.5rem;
-    height: 3.75rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    border-radius: 5px;
-    border: 1px solid #674baf;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.social-login-element img {
-    width: 1.875rem;
-    height: 1.875rem;
-    position: relative;
-    top: 0;
-    left: -0.625rem;
-}
-.social-login-element:hover {
-    background-color: #fff;
 }
 
 .inputs-container {
@@ -78,7 +50,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 .login-info-container > p {
     font-size: 1.25em;
