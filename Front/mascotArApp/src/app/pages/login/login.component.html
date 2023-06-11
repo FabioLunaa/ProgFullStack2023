@@ -1,26 +1,26 @@
 <div class="login-container">
   <div class="login-info-container">
     <h1 class="title">Inicia Sesión</h1>
-    <form [formGroup]="loginForm" (ngSubmit)="login()" class="inputs-container">
+    <form [formGroup]="form" (ngSubmit)="onEnviar($event, usuario)" class="inputs-container">
       <input class="input" type="email" placeholder="Correo" formControlName="email">
-      <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)" class="text-danger">
-        <div *ngIf="loginForm.controls['email'].errors?.['required']">
+      <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="text-danger">
+        <div *ngIf="form.controls['email'].errors?.['required']">
           El Email es requerido.
         </div>
-        <div *ngIf="loginForm.controls['email'].errors?.['email']">
+        <div *ngIf="form.controls['email'].errors?.['email']">
           El Email debe tener un formato válido.
         </div>
       </div>
       <input class="input" type="password" placeholder="Contraseña" formControlName="password">
-      <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)" class="text-danger">
-        <div *ngIf="loginForm.controls['password'].errors?.['required']">
+      <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)" class="text-danger">
+        <div *ngIf="form.controls['password'].errors?.['required']">
           La contraseña es requerida.
         </div>
       </div>
 
       <p>Olvidaste tu contraseña? <span class="span">Click aquí</span></p>
 
-      <button type="submit" class="btn" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+      <button type="submit" class="btn" [disabled]="form.invalid">Iniciar Sesión</button>
 
       <p>No tienes una cuenta? <a href="http://127.0.0.1:5500/ProgFullStack/Frontend/view/registro_us.html" target="_blank" style="text-decoration:none">
           <span class="span">Registrate</span>
