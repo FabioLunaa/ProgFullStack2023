@@ -21,22 +21,22 @@
       
       <form [formGroup]="registroUForm" (ngSubmit)="registroU()" class="inputs-container">
         
-        <input class="input" type="nombre" placeholder="nombre" formControlName="nombre">
+        <input class="input" type="nombre" placeholder="Nombre" formControlName="nombre">
           <div *ngIf="registroUForm.controls['nombre'].invalid && (registroUForm.controls['nombre'].dirty || registroUForm.controls['nombre'].touched)" class="text-danger">
             <div *ngIf="registroUForm.controls['nombre'].errors?.['required']">
               Nombre requerido.
             </div>
           </div>
-          <input class="input" type="telefono" placeholder="Telefono" formControlName="telefono">
+          <input class="input" type="telefono" placeholder="Teléfono" formControlName="telefono">
             <div *ngIf="registroUForm.controls['telefono'].invalid && (registroUForm.controls['telefono'].dirty || registroUForm.controls['telefono'].touched)" class="text-danger">
               <div *ngIf="registroUForm.controls['telefono'].errors?.['required']">
-                El Telefono es requerido.
+                Teléfono requerido.
               </div>
             </div>      
           <input class="input" type="email" placeholder="Correo" formControlName="email">
           <div *ngIf="registroUForm.controls['email'].invalid && (registroUForm.controls['email'].dirty || registroUForm.controls['email'].touched)" class="text-danger">
             <div *ngIf="registroUForm.controls['email'].errors?.['required']">
-              El Email es requerido.
+              Email requerido.
             </div>
             <div *ngIf="registroUForm.controls['email'].errors?.['email']">
               El Email debe tener un formato válido.
