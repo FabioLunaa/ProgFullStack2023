@@ -16,13 +16,11 @@ import { AuthGuard } from './Services/auth/auth.guard';
 
 const routes: Routes = [
   { path: 'iniciar-sesion', component: LoginComponent},
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] ,
-  children:[
-  { path: 'registrar-mascota', component: RegistrarMascotaComponent},
-  { path: 'carrito', component: CarritoComponent},
-  { path: 'finalizar-compra', component: FinalizarCompraComponent},
-  ]
-},
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]} ,
+  { path: 'registrar-mascota', component: RegistrarMascotaComponent, canActivate: [AuthGuard]},
+  { path: 'carrito', component: CarritoComponent, canActivate: [AuthGuard]},
+  { path: 'finalizar-compra', component: FinalizarCompraComponent, canActivate: [AuthGuard]},
+  
   { path: 'mascota-adopcion', component: MascotasAdopcionComponent},
   { path: 'mascotas-encontradas', component: MascotasEncontradasComponent },
   { path: 'mascotas-perdidas', component: MascotasPerdidasComponent },
