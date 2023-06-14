@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AuthService {
-  url="https://reqres.in/api/users/1";
+  url='http//localhost:8000/api';
   loggedIn= new BehaviorSubject<boolean>(false);
   currentUserSubject: BehaviorSubject<Usuario>;
   currentUser: Observable<Usuario>;

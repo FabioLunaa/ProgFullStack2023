@@ -120,6 +120,6 @@ get Contraseña2Valid()
   }
 
   registerUser(userData: any) {
-    return this.http.post('https://localhost:8000/api/auth/register/', userData);
+    return this.http.post('http://127.0.0.1:8000/api/auth/registro/', userData);
   }
 }
