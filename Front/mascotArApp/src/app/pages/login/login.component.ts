@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
   onEnviar(event: Event, usuario:Usuario): void {
     
     event.preventDefault();
-    this.authService.login(this['usuario'])
+    this.authService.login(this.usuario)
       .subscribe(
         data => {
         console.log("DATA"+ JSON.stringify( data));   
