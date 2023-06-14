@@ -12,6 +12,7 @@ export class Usuario
   private _contraseña:string="";
   private _email:string="";
   private _id:number=0;
+  token?: string;
 
   get nombre(): string {
     return this._nombre;
