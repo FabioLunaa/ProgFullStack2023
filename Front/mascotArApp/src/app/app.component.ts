@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CarritoService } from './Services/carrito.service';
 import {MascotasService} from './Services/mascotas.service';
+import { environment } from '@src/environments/environment';
 
 @Component({
   selector: 'app-root',
