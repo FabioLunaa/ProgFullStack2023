@@ -60,7 +60,7 @@ export class Usuario
   providedIn: 'root'
 })
 export class UsuarioService {
-  urls="https://reqres.in/api/users/1"
+  urls="localhost:8000/api/usuarios";
 
   constructor(private http:HttpClient) { 
     console.log("Servicio Usuarios está corriendo") }
@@ -69,5 +69,4 @@ export class UsuarioService {
     return this.http.post<Usuario>(this.urls, usuario);
   }
 }
-
 
