@@ -1,7 +1,7 @@
 <div class="login-container">
   <div class="login-info-container">
     <h1 class="title">Inicia Sesión</h1>
-    <form [formGroup]="form" (ngSubmit)="onEnviar($event, usuario)" class="inputs-container">
+    <form [formGroup]="form"  class="inputs-container">
       <input class="input" type="email" placeholder="Correo" formControlName="email">
       <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="text-danger">
         <div *ngIf="form.controls['email'].errors?.['required']">

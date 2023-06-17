@@ -4,7 +4,7 @@ import { FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/Services/auth/auth.service';
-import { Usuario } from 'src/app/Services/usuario.service';
+
 
 @Component({
   selector: 'app-login',
@@ -53,20 +53,20 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this['returnUrl'] = this['route'].snapshot.queryParams.returnUrl || '/';
   }
-  onEnviar(event: Event, usuario:Usuario): void {
+  // onEnviar(event: Event, usuario:Usuario): void {
     
-    event.preventDefault();
-    this.authService.login(this.usuario)
-      .subscribe(
-        data => {
-        console.log("DATA"+ JSON.stringify( data));   
-        this.router.navigate(['/home']);
-      },
-        error => {
-         this['error'] = error;
-        }
-      );
-      }
+  //   event.preventDefault();
+  //   this.authService.login(this.usuario)
+  //     .subscribe(
+  //       data => {
+  //       console.log("DATA"+ JSON.stringify( data));   
+  //       this.router.navigate(['/home']);
+  //     },
+  //       error => {
+  //        this['error'] = error;
+  //       }
+  //     );
+  //     }
     
 
 

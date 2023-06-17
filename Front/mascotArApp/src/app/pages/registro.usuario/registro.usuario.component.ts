@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Usuario, UsuarioService } from 'src/app/Services/usuario.service';
+import { UsuarioService } from 'src/app/Services/usuario.service';
+import { Usuario } from 'src/app/models/usuario.models';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegistroUsuarioComponent implements OnInit {
   form: FormGroup;
-  usuario: Usuario = new Usuario();
+  usuario?: Usuario;
   contraseña2: any;
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private usuarioService: UsuarioService) {
   this.form = this.formBuilder.group({
@@ -27,21 +28,19 @@ export class RegistroUsuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onEnviar(event: Event, usuario:Usuario): void {
-    event.preventDefault();
+  onEnviar( usuario:Usuario): void {
+   
     if (this.form.value){
       console.log("Enviando al servidor....");
       console.log(usuario);
 
-      this.usuarioService.onCrearUsuario(usuario).subscribe(
-        data =>{
-          if(data.id>0)
-            {
-              alert("El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión.");
-              this.router.navigate(['/iniciar-sesion'])
-            }
+      this.usuarioService.onCrearUsuario(usuario).subscribe({
+        next: (response) => {
+          console.log(response);
+        
         }
-      )
+        })
+      
     }
     else
     {

@@ -20,23 +20,23 @@
       </div>
       <div class="row m-3"> 
       
-      <form [formGroup]="form" class="form" (ngSubmit)="onEnviar($event, usuario)">
+      <form [formGroup]="form" class="form" >
         <label for="nombre" class="form-label">Nombre</label>
-        <input class="input" type="text" id="nombre" class="form-control" formControlName="nombre" [(ngModel)]="usuario.nombre" [class.border-danger]="NombreValid">
+        <input class="input" type="text" id="nombre" class="form-control" formControlName="nombre"  [class.border-danger]="NombreValid">
           <div *ngIf="form.controls['nombre'].invalid && (form.controls['nombre'].dirty || form.controls['nombre'].touched)" class="text-danger">
             <div *ngIf="Nombre?.errors && Nombre?.touched">
               <p *ngIf="Nombre?.hasError('required')" class="text-danger">El nombre es requerido.</p>
             </div>
           </div>
         <label for="email" class="form-label">Email</label>
-        <input class="input" type="text" id="email" class="form-control" formControlName="email" [(ngModel)]="usuario.email" [class.border-danger]="EmailValid">
+        <input class="input" type="text" id="email" class="form-control" formControlName="email"  [class.border-danger]="EmailValid">
           <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" class="text-danger">
             <div *ngIf="Email?.errors && Email?.touched">
               <p *ngIf="Email?.hasError('required')" class="text-danger">El email es requerido.</p>
             </div>
           </div>      
         <label for="password" class="form-label">Contraseña</label>
-        <input class="input" type="password" id="password" class="form-control" formControlName="password" [(ngModel)]="usuario.password" [class.border-danger]="PasswordValid">
+        <input class="input" type="password" id="password" class="form-control" formControlName="password"  [class.border-danger]="PasswordValid">
             <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)" class="text-danger">
               <div *ngIf="password?.errors && password?.touched">
                 <p *ngIf="password?.hasError('required')" class="text-danger">La contraseña es requerida.</p>
