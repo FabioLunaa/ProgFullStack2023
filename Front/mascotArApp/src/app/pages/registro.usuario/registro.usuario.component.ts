@@ -1,50 +1,47 @@
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Usuario, UsuarioService } from 'src/app/Services/usuario.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Usuario, UsuarioService } from 'src/app/Services/usuario.service';
-
 
 
 @Component({
-  selector: 'app-registro.usuario',
+  selector: 'app-registro',
   templateUrl: './registro.usuario.component.html',
   styleUrls: ['./registro.usuario.component.css']
 })
 export class RegistroUsuarioComponent implements OnInit {
-  registroUForm = this.formBuilder.group({
+  form: FormGroup;
+  usuario: Usuario = new Usuario();
+  contraseña2: any;
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private usuarioService: UsuarioService) {
+  this.form = this.formBuilder.group({
     nombre: ['', [Validators.required]],
-    telefono: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
     provincia: ['provincia', [Validators.required]],
     departamento: ['departamento', [Validators.required]],
   })
-  form: any;
-  contraseña2: any;
+}
   
-
-  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private usuarioService: UsuarioService) { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   onEnviar(event: Event, usuario:Usuario): void {
     event.preventDefault();
-    if (this.form.valid){
+    if (this.form.value){
       console.log("Enviando al servidor....");
       console.log(usuario);
 
-      this.usuarioService.crearUsuario(usuario).subscribe(
-        (data: { id: number }) => {
-          console.log(data.id);
-            if(data.id>0)
+      this.usuarioService.onCrearUsuario(usuario).subscribe(
+        data =>{
+          if(data.id>0)
             {
-              alert("El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Serión.");
-              this.router.navigate(['/iniciar-sesión'])
+              alert("El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión.");
+              this.router.navigate(['/iniciar-sesion'])
             }
-        })
+        }
+      )
     }
     else
     {
@@ -52,14 +49,14 @@ export class RegistroUsuarioComponent implements OnInit {
     }
   };
 
-  get contraseña1()
+  get password()
   {
-    return this.form.get("password1");
+    return this.form.get("password");
   }
-   get contrseña2()
-   {
+get contrseña2()
+  {
     return this.form.get("contraseña2");
-   }
+  }
 get Email()
 {
   return this.form.get("email");
@@ -88,9 +85,9 @@ get ApellidoValid()
   return this.Apellido?.touched && !this.Apellido?.valid;
 }
 
-get Contraseña1Valid()
+get PasswordValid()
 {
-  return this.contraseña1.touched && !this.contraseña1?.valid;
+  return this.password?.touched && !this.password?.valid;
 
 }
 
@@ -99,27 +96,26 @@ get Contraseña2Valid()
   return this.contraseña2.touched && !this.contraseña2?.valid;
 }
 
-
-
-
-  registroU() {
-    if (this.registroUForm.valid) {
-      console.log("Llamar al servicio de Registro");
-      this.registerUser(this.registroUForm.value)
-        .subscribe(
-          response => {
-            console.log(response);
-            this.router.navigateByUrl('/inicio');
-            this.registroUForm.reset();
-          }
-        );
-    } else {
-      this.registroUForm.markAllAsTouched();
-      alert("Error al ingresar los datos");
-    }
-  }
-
-  registerUser(userData: any) {
-    return this.http.post('http://127.0.0.1:8000/api/auth/registro/', userData);
+registroU() {
+  if (this.form.valid) {
+    console.log("Llamar al servicio de Registro");
+    this.registerUser(this.form.value)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.router.navigateByUrl('/inicio');
+          this.form.reset();
+        }
+      );
+  } else {
+    this.form.markAllAsTouched();
+    alert("Error al ingresar los datos");
   }
 }
+
+registerUser(userData: any) {
+  return this.http.post('http://127.0.0.1:8000/api/registro/', userData);
+}
+
+}
+

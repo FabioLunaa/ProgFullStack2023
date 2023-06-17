@@ -9,7 +9,7 @@ export class Usuario
 
  private _nombre:string = "";
   private _apellido:string= "";
-  private _contraseña:string="";
+  private _password:string="";
   private _email:string="";
   private _id:number=0;
   token?: string;
@@ -30,12 +30,12 @@ export class Usuario
     this._apellido = value;
   }
 
-  get contraseña(): string {
-    return this._contraseña;
+  get password(): string {
+    return this._password;
   }
 
-  set contraseña(value: string) {
-    this._contraseña = value;
+  set password(value: string) {
+    this._password = value;
   }
  
   get email(): string {
@@ -54,20 +54,19 @@ export class Usuario
     this._id = value;
   }
 
-
-
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  url="https://reqres.in/api/users/1"
+  urls="https://reqres.in/api/users/1"
 
-  constructor(private http:HttpClient) { console.log("Servicio Usuarios está corriendo") }
+  constructor(private http:HttpClient) { 
+    console.log("Servicio Usuarios está corriendo") }
 
-  crearUsuario(usuario:Usuario):Observable<any>{
-    return this.http.post<Usuario>(this.url, usuario);
+  onCrearUsuario(usuario:Usuario):Observable<Usuario>{
+    return this.http.post<Usuario>(this.urls, usuario);
   }
 }
 

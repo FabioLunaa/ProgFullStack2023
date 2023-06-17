@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'registrar-mascota', component: RegistrarMascotaComponent, canActivate: [AuthGuard]},
   { path: 'carrito', component: CarritoComponent, canActivate: [AuthGuard]},
   { path: 'finalizar-compra', component: FinalizarCompraComponent, canActivate: [AuthGuard]},
-  
   { path: 'mascota-adopcion', component: MascotasAdopcionComponent},
   { path: 'mascotas-encontradas', component: MascotasEncontradasComponent },
   { path: 'mascotas-perdidas', component: MascotasPerdidasComponent },
