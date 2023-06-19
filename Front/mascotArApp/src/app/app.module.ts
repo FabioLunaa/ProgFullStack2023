@@ -7,10 +7,13 @@ import { ProductosModule } from './Productos/Productos.module';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { ApiService } from './Services/api.service';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './Services/auth/interceptor';
+import { UsuarioService } from './Services/usuario.service';
+import { ErrorInterceptor } from './Services/auth/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ApiService],
+  providers:  [UsuarioService,ApiService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
