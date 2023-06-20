@@ -23,7 +23,7 @@ export class RegistroUsuarioComponent implements OnInit {
     departamento: ['departamento', [Validators.required]],
   })
 }
-  
+
   ngOnInit(): void {
   }
 
@@ -33,15 +33,36 @@ export class RegistroUsuarioComponent implements OnInit {
       console.log("Enviando al servidor....");
       console.log(usuario);
 
-      this.usuarioService.onCrearUsuario(usuario).subscribe(
-        data =>{
-          if(data.id>0)
-            {
-              alert("El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión.");
-              this.router.navigate(['/iniciar-sesion'])
-            }
+
+      let user = {
+        email:this.form.value.email,
+        username: this.form.value.username,
+        password: this.form.value.password
+      }
+
+      this.usuarioService.onCrearUsuario2(user).subscribe({
+        next: (response) => {
+          event.preventDefault();
+          console.log(response);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+        complete: () => {
         }
-      )
+
+      })
+
+
+      // this.usuarioService.onCrearUsuario(usuario).subscribe(
+      //   data =>{
+      //     if(data.id>0)
+      //       {
+      //         alert("El registro ha sido creado satisfactoriamente. A continuación, por favor Inicie Sesión.");
+      //         this.router.navigate(['/iniciar-sesion'])
+      //       }
+      //   }
+      // )
     }
     else
     {
