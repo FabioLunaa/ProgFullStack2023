@@ -27,6 +27,7 @@ export class RegistroUsuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   onEnviar(event: Event, usuario:Usuario): void {
     event.preventDefault();
     if (this.form.value){
@@ -67,6 +68,22 @@ export class RegistroUsuarioComponent implements OnInit {
     else
     {
       this.form.markAllAsTouched();
+
+  registroU() {
+    if (this.registroUForm.valid) {
+      console.log("Llamar al servicio de Registro");
+      this.registerUser(this.registroUForm.value)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.router.navigateByUrl('/inicio');
+            this.registroUForm.reset();
+          }
+        );
+    } else {
+      this.registroUForm.markAllAsTouched();
+      alert("Error al ingresar los datos");
+
     }
   };
 
@@ -95,6 +112,7 @@ get EmailValid()
 {
   return this.Email?.touched && !this.Email?.valid;
 }
+
 
 get NombreValid()
 {
@@ -131,12 +149,11 @@ registroU() {
   } else {
     this.form.markAllAsTouched();
     alert("Error al ingresar los datos");
+
+  registerUser(userData: any) {
+    return this.http.post('https://localhost:8000/api/auth/register/', userData);
+
   }
 }
 
-registerUser(userData: any) {
-  return this.http.post('http://127.0.0.1:8000/api/registro/', userData);
-}
-
-}
 
