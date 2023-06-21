@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7@pfv70s(k@#!=x3vs6))=r&e2*2o*cndj7)*9$2f$tj!q2d!*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['f79a-179-62-62-154.ngrok-free.app', '127.0.0.1']
 
 
 # Application definition
@@ -46,13 +46,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
@@ -143,6 +143,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
-        'knox.auth.TokenAuthentication',
+       # 'knox.auth.TokenAuthentication',
     ]
 }
+ALLOWED_HOSTS=['*']
+CORS_ORIGIN_ALLOW_ALL = True

@@ -3,14 +3,45 @@
 
 <body>
 
-    <main class="publicaciones publicaciones_productos">
-        <h1>Venta de productos</h1>
-        <p>En esta página encontrarás productos para el cuidado y la alimentación de tus peluditos.</p>         
-        <section id="container">
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" class="sidenav" [opened]="open" position="end">
+            <h2>Carrito</h2>
+            <div class="items">
+                <div class="itemrow" *ngFor="let producto of productosEnCarro">
 
-        </section>
-    </main>
-  
-    <script src="./js/productos.js"></script>
+                    <p>{{producto.nombre}}</p>
+                    <p>{{producto.precio}}</p>
+
+                </div>
+            </div>
+            <div class="botones">
+                <button>Finalizar compra</button>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <main class="publicaciones publicaciones_productos">
+                <h1>Venta de productos</h1>
+                <button (click)="toggleCart()">Abrir Carrito</button>
+                <p>En esta página encontrarás productos para el cuidado y la alimentación de tus peluditos.</p>
+                <section id="container">
+
+                </section>
+            </main>
+            <div class="productos-container">
+                <div class="producto" *ngFor="let producto of productos">
+                    <div class="title">{{producto.nombre}}</div>
+                    <div class="imagen"><img src="{{producto.linkImagen}}" alt=""></div>
+                    <div class="descripcion"><p>{{producto.descripcion}}</p></div>
+                    <div class="precio">{{producto.precio | currency}}</div>
+                    <button (click)="addToCart(producto)">Agregar al carro</button>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+
+
+    <!-- <script src="./js/productos.js"></script> -->
 </body>
 </html>

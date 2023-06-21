@@ -11,9 +11,6 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
-
-
 @NgModule({
   declarations: [
     HomeComponent,

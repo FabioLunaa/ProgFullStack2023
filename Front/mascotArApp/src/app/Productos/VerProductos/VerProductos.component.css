@@ -1,17 +1,76 @@
 .publicaciones_productos h1 {
-    justify-self: center;
-    margin-top: 2em;
-    margin-bottom: 1em;
-    font-weight: 700;
-    font-size: 3em;
-    background-image: linear-gradient(120deg, #F09819,#EDDE5D 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 0.2em;
-    background-position: 0 100%;
+  justify-self: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-weight: 700;
+  font-size: 3em;
+  background-image: linear-gradient(120deg, #F09819,#EDDE5D 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 100%;
 }
 .publicaciones_productos p {
-    justify-self: center;
-    font-weight: 400;
-    font-size: 1.2em;
-    margin-bottom: 2em;
+  justify-self: center;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin-bottom: 2em;
+}
+
+.productos-container {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.producto {
+  width: 15%;
+  height: 250px;
+  border-radius: 5px;
+  background: #c8c7c700;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid black;
+  margin: 2px;
+  justify-content: space-between;
+  padding: 5px
+}
+.producto .imagen img{
+  width: auto;
+  height: 80px;
+}
+
+.sidenav {
+  min-width: 20%;
+  text-align: center;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidenav .items {
+  height: 85%;
+  width: 100%;
+  background: grey;
+  padding: 5px 10px;
+}
+
+.itemrow {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 2px;
+  margin: 2px 0px;
+}
+
+.itemrow p {
+  margin: auto 0px;
 }

@@ -60,7 +60,7 @@ export class Usuario
   providedIn: 'root'
 })
 export class UsuarioService {
-  urls="http://localhost:8000/api/usuarios/";
+  urls="http://127.0.0.1:8000/admin/auth/user/";
 
   constructor(private http:HttpClient) {
     console.log("Servicio Usuarios está corriendo") }

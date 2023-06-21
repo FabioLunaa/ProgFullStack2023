@@ -14,6 +14,7 @@ export class RegistroUsuarioComponent implements OnInit {
   form: FormGroup;
   usuario: Usuario = new Usuario();
   contraseña2: any;
+  registroUForm!: FormGroup
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private usuarioService: UsuarioService) {
   this.form = this.formBuilder.group({
     nombre: ['', [Validators.required]],
@@ -67,93 +68,73 @@ export class RegistroUsuarioComponent implements OnInit {
     }
     else
     {
-      this.form.markAllAsTouched();
+      this.form.markAllAsTouched();}
+  }
 
-  registroU() {
-    if (this.registroUForm.valid) {
-      console.log("Llamar al servicio de Registro");
-      this.registerUser(this.registroUForm.value)
-        .subscribe(
-          response => {
-            console.log(response);
-            this.router.navigateByUrl('/inicio');
-            this.registroUForm.reset();
-          }
-        );
-    } else {
-      this.registroUForm.markAllAsTouched();
-      alert("Error al ingresar los datos");
+  // registroU() {
+  //   if (this.registroUForm.valid) {
+  //     console.log("Llamar al servicio de Registro");
+  //     this.registerUser(this.registroUForm.value)
+  //       .subscribe(
+  //         response => {
+  //           console.log(response);
+  //           this.router.navigateByUrl('/inicio');
+  //           this.registroUForm.reset();
+  //         }
+  //       );
+  //   } else {
+  //     this.registroUForm.markAllAsTouched();
+  //     alert("Error al ingresar los datos");
 
-    }
-  };
+  //   }
+  // };
 
   get password()
   {
-    return this.form.get("password");
-  }
-get contrseña2()
+      return this.form.get("password");
+    }
+    get contrseña2()
+    {
+      return this.form.get("contraseña2");
+    }
+  get Email()
   {
-    return this.form.get("contraseña2");
+    return this.form.get("email");
   }
-get Email()
-{
-  return this.form.get("email");
-}
 
-get Nombre()
-{
-  return this.form.get("nombre")
-}
-get Apellido(){
-  return this.form.get("apellido");
-}
+  get Nombre()
+  {
+    return this.form.get("nombre")
+  }
+  get Apellido(){
+    return this.form.get("apellido");
+  }
 
-get EmailValid()
-{
-  return this.Email?.touched && !this.Email?.valid;
-}
+  get EmailValid()
+  {
+    return this.Email?.touched && !this.Email?.valid;
+  }
 
 
-get NombreValid()
-{
-  return this.Nombre?.touched && !this.Nombre?.valid;
-}
+  get NombreValid()
+  {
+    return this.Nombre?.touched && !this.Nombre?.valid;
+  }
 
-get ApellidoValid()
-{
-  return this.Apellido?.touched && !this.Apellido?.valid;
-}
+  get ApellidoValid()
+  {
+    return this.Apellido?.touched && !this.Apellido?.valid;
+  }
 
-get PasswordValid()
-{
-  return this.password?.touched && !this.password?.valid;
-
-}
-
-get Contraseña2Valid()
-{
-  return this.contraseña2.touched && !this.contraseña2?.valid;
-}
-
-registroU() {
-  if (this.form.valid) {
-    console.log("Llamar al servicio de Registro");
-    this.registerUser(this.form.value)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.router.navigateByUrl('/inicio');
-          this.form.reset();
-        }
-      );
-  } else {
-    this.form.markAllAsTouched();
-    alert("Error al ingresar los datos");
-
-  registerUser(userData: any) {
-    return this.http.post('https://localhost:8000/api/auth/register/', userData);
+  get PasswordValid()
+  {
+    return this.password?.touched && !this.password?.valid;
 
   }
-}
 
+  get Contraseña2Valid()
+  {
+    return this.contraseña2.touched && !this.contraseña2?.valid;
+  }
 
+  }
