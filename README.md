@@ -15,7 +15,7 @@ MascotAR es un sitio web que tiene como propósito principal ayudar a los animal
 
 Además incluye una sección destinada a la venta online de productos para animales de compañía.
 
-# Tecnologias Utilizadas
+# Tecnologías Utilizadas
 ![https://img.shields.io/badge/Python-3.11.3-blue](https://img.shields.io/badge/Python-3.11.3-blue)
 ![https://img.shields.io/badge/Angular-orange](https://img.shields.io/badge/AngularCLI-16.1.0-orange)
 ![https://img.shields.io/badge/Django-orange](https://img.shields.io/badge/Django-4.2.2-red)
@@ -23,7 +23,7 @@ Además incluye una sección destinada a la venta online de productos para anima
 ![https://img.shields.io/badge/Node-orange](https://img.shields.io/badge/Node-18.16.0-violet)
 
 
-## Instalacion 
+## instalación 
 ### Clonar el proyecto 
 
 ```github
@@ -35,7 +35,7 @@ git clone https://github.com/FabioLunaa/ProgFullStack2023.git
 npm install
 ```
 
-### Comience la aplicacion 
+### Comience la aplicación 
 
 ```
 ng serve
