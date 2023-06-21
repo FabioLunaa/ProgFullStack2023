@@ -13,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AuthService {
-  url='https://reqres.in/api/login';
+  url='http://localhost:8000/api/auth/login/';
   loggedIn= new BehaviorSubject<boolean>(false);
   currentUserSubject: BehaviorSubject<Usuario>;
   currentUser: Observable<Usuario>;
@@ -30,7 +30,7 @@ export class AuthService {
         this.currentUserSubject.next(data);
         this.loggedIn.next(true);
         console.log(data);
-        
+
         return data;
       }));
   }
@@ -38,7 +38,7 @@ export class AuthService {
   logout(): void{
     localStorage.removeItem('currentUser');
     this.loggedIn.next(false);
-    
+
   }
 
   get usuarioAutenticado(): Usuario {
@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   get estaAutenticado(): Observable<boolean> {
-   
+
     return this.loggedIn.asObservable();
   }
 }

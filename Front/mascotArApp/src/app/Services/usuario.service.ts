@@ -37,7 +37,7 @@ export class Usuario
   set password(value: string) {
     this._password = value;
   }
- 
+
   get email(): string {
     return this._email;
   }
@@ -60,13 +60,18 @@ export class Usuario
   providedIn: 'root'
 })
 export class UsuarioService {
-  urls="localhost:8000/api/usuarios";
+  urls="http://127.0.0.1:8000/admin/auth/user/";
 
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient) {
     console.log("Servicio Usuarios está corriendo") }
 
   onCrearUsuario(usuario:Usuario):Observable<Usuario>{
     return this.http.post<Usuario>(this.urls, usuario);
+  }
+
+
+  onCrearUsuario2(usuario:any):Observable<any>{
+    return this.http.post<any>(this.urls, usuario);
   }
 }
 
