@@ -1,8 +1,31 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 # Create your models here.
 
 
+    
+class Usuario(models.Model):
+    dni = models.CharField(primary_key=True, max_length=45, blank=False)
+    nombre = models.CharField(max_length=45, blank=False)
+    contrasena = models.CharField(max_length=45, blank=False)
+    telefono = models.CharField(max_length=45, blank=False)
+    email = models.CharField(max_length=45, blank=False)
+    direccion = models.CharField(max_length=45, blank=False)
+    ciudad = models.CharField(max_length=45, blank=False)
+    provincia = models.CharField(max_length=45, blank=False)
+
+    class Meta:
+        db_table = "Usuario"
+        verbose_name = "Usuario"
+        verbose_name_plural = "Usuarios"
+
+    def __unicode__(self):
+        return self.nombre
+
+    def __str__(self):
+        return self.nombre
+    
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=8, decimal_places=2)

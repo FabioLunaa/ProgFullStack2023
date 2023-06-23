@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoguearseComponent } from './loguearse/loguearse.component';
+
+
 
 @NgModule({
   declarations: [
@@ -8,4 +11,4 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class PagesModule { }
+export class AuthModule { }
