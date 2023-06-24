@@ -7,15 +7,13 @@
 }
 
 .login-container {
-    height: 43.75em;
-    background-color: #f8e5ac;
-    width: 60em;
-    margin: 6em auto;
-    border-radius: 10px;
     display: flex;
-    justify-content: space-between;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--login-bg);
 }
+
 .login-info-container {
     width: 50%;
     display: flex;
@@ -25,8 +23,8 @@
     padding-top: 0.5rem;
     background-color: var(--login-bg);
 }
+
 .image-container {
-    
     width: 50%;
     background-color: var(--image-bg);
     box-sizing: border-box;
@@ -38,7 +36,7 @@
     background-color: #e5e9dc;
     padding: 0.3em;
     border-radius: 10px;
-    font-weight:400;
+    font-weight: 400;
     font-size: 24px;
     margin: 20px;
 }
@@ -52,15 +50,14 @@
     align-items: center;
     margin-top: 3rem;
 }
-.login-info-container > p {
-    font-size: 1.25em;
-    margin-top: 1.5em;
-}
-.input, .btn {
+
+.input,
+.btn {
     width: 90%;
     height: 3.125rem;
     font-size: 1em;
 }
+
 .input {
     padding-left: 20px;
     border: none;
@@ -69,13 +66,16 @@
     letter-spacing: 1px;
     box-sizing: border-box;
 }
-input, textarea {
+
+input,
+textarea {
     width: 100%;
     margin-bottom: 2rem;
     padding: 0.5rem;
     border-color: #cdc76b;
     border-radius: 0.5rem;
 }
+
 .input:hover {
     border: 2px solid var(--button-bg);
 }
@@ -89,9 +89,11 @@ input, textarea {
     margin: 16px 0;
     font-size: 16px;
 }
+
 .inputs-container p {
     margin: 0;
 }
+
 .span {
     color: var(--light-pink);
     font-weight: 600;
@@ -100,34 +102,59 @@ input, textarea {
 
 .login-container select {
     margin-bottom: 32px;
-}  
+}
+
+.registration-container {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--login-bg);
+    border: 2px solid var(--button-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; 
+    margin-top: 10vh;
+    margin-bottom: 60px;
+}
+
 @media screen and (max-width: 1000px) {
     .login-container {
-        width: 70%;
-        margin-top: 3rem;
-    }
-    .login-info-container {
         width: 100%;
-        border-radius: 5px;
     }
+
+    .login-info-container {
+        width: 60%;
+    }
+
     .image-container {
         display: none;
-    }  
-}
-@media screen and (max-width: 650px) {
-    .login-container {
-        width: 90%;
     }
 }
+
+@media screen and (max-width: 650px) {
+    .login-info-container {
+        width: 80%;
+    }
+
+    .registration-container {
+        width: 80%;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .login-container {
-        height: 90%;
+        height: auto;
     }
+
     .social-login {
         flex-direction: column;
         align-items: center;
         height: 30%;
     }
+
     .login-info-container > p {
         margin: 0;
     }
