@@ -1,15 +1,24 @@
 <div class="container d-flex flex-column justify-content-center align-items-center g-5 p-5">
     <h1 class="p-2">Elije opción de pago</h1>
+    <p>Monto total: ${{montoTotal()}}</p>
     <select name="Forma de Pago" id="pago">
         <option value="">Seleccionar...</option> 
-         <option value="MercadoPago">MercadoPago</option>
+         <option value="MercadoPago">Mercado Pago</option>
      </select>
-    <div>
-        <div class="itemrow" *ngFor="let producto of productosEnCarro; let i = index">
-            <p>{{producto.nombre}}</p>
-            <p>${{producto.precio}}</p>
-    </div>
-    <div class="d-grid gap-2 d-md-block p-2">
-        <button class="btn btn-primary" style="background-color: #023B48;" type="button">Pagar</button>
-    </div>
+     <form ng-submit="submitPayment()">
+        <label for="nombre_tarjeta">Nombre en la Tarjeta:</label>
+        <input type="text" id="nombre_tarjeta" ng-model="paymentData.nombre_tarjeta" required><br><br>
+        
+        <label for="numero_tarjeta">Número de Tarjeta:</label>
+        <input type="text" id="numero_tarjeta" ng-model="paymentData.numero_tarjeta" required><br><br>
+        
+        <label for="fecha_vencimiento">Fecha de Vencimiento:</label>
+        <input type="text" id="fecha_vencimiento" ng-model="paymentData.fecha_vencimiento" placeholder="MM/AA" required><br><br>
+        
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" ng-model="paymentData.cvv" required><br><br>
+        
+        <button (click)="pagar()" routerLink='home' value="Pagar">Pagar</button>
+    </form>
+    
 </div>

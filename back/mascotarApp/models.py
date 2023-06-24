@@ -3,17 +3,7 @@ from django.db import models
 
 # Create your models here.
 
-class CustomUser(AbstractUser):
-    email = models.EmailField(max_length=150, unique=True)
-    username = models.CharField(max_length=150, unique=False)
-    USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "password"]
 
-    def __unicode__(self):
-        return self.username
-
-    def __str__(self):
-        return self.username
     
 class Usuario(models.Model):
     dni = models.CharField(primary_key=True, max_length=45, blank=False)
@@ -49,19 +39,3 @@ class Producto(models.Model):
     
     def __str__(self):
         return self.nombre
-
-class Metodopago(models.Model):
-    id = models.AutoField(primary_key=True)
-    monto = models.PositiveIntegerField()
-    Usuario = models.ForeignKey("CustomUser", to_field="id", on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = "Metodopago"
-        verbose_name = "Metodopago"
-        verbose_name_plural = "Metodopagos"
-
-    def __unicode__(self):
-        return self.id
-
-    def __str__(self):
-        return str(self.id)

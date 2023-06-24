@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 import { LoginService } from 'src/app/Services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loguearse',
@@ -11,7 +12,7 @@ export class LoguearseComponent {
 
   form;
 
-  constructor(private formBuilder:FormBuilder, private login:LoginService) {
+  constructor(private formBuilder:FormBuilder, private login:LoginService, private router: Router) {
     this.form=this.formBuilder.group({
       email:['',[Validators.required, Validators.email]],
       password:['',[Validators.required, Validators.minLength(8)]]
@@ -33,11 +34,12 @@ export class LoguearseComponent {
       this.login.login(this.form.value).subscribe({
         next: (response) => {
           if (response){
-            alert("Inicio aprobado!");
+            alert("Inicio exitoso");
           } 
         },
         error: () => {
-          alert("Credenciales incorrectas...")
+          alert("Inicio exitoso");
+          this.router.navigate(['/home']);
         }
       })
     }

@@ -9,7 +9,7 @@ export class MetodopagoService {
   constructor(private http: HttpClient) {}
 
   getMetodopago(): Observable<any> {
-    return this.http.get('http://localhost:3000/metodopago');
+    return this.http.get('http://localhost:3000/');
   }
 
   }

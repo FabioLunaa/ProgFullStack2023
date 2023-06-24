@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from rest_framework import viewsets
-from .serializers import UserSerializer, ProductoSerializer, MetodopagoSerializer
+from .serializers import UserSerializer, ProductoSerializer
 from .models import Producto
 from rest_framework.views import APIView
 from rest_framework import generics, status
@@ -39,7 +39,3 @@ class LogoutView(APIView):
         logout(request)
         return Response(status=status.HTTP_200_OK)
     
-class VerMetodoPagoView(viewsets.ReadOnlyModelViewSet):
-    permission_classes = [AllowAny]
-    queryset = Metodopago.objects.all()
-    serializer_class = MetodopagoSerializer
