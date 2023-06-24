@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { CarritoService } from './Services/carrito.service';
-import {MascotasService} from './Services/mascotas.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,9 @@ import {MascotasService} from './Services/mascotas.service';
 })
 export class AppComponent {
   title = 'MascotAr';
-  carrito: any = {};
+
   
-  constructor(private service: CarritoService, private mascotasService: MascotasService){
+  constructor(){
 
   }
   

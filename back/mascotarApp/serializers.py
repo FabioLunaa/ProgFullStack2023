@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Producto
+from .models import Producto, Metodopago
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 
@@ -20,3 +20,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     def validate_password(self, value):
         return make_password(value)
+    
+class MetodopagoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Metodopago
+        fields = "__all__"

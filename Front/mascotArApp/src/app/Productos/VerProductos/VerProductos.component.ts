@@ -35,9 +35,17 @@ export class VerProductosComponent implements OnInit {
   }
 
   removeFromCart(index: number) {
-
+    this.productosEnCarro.splice(index)
   }
 
+  getTotal(): number {
+    for (const producto of this.productosEnCarro) {
+      const precioNumerico = parseFloat(producto.precio);
+      console.log(typeof precioNumerico);
+    }
+    return this.productosEnCarro.reduce((total, producto) => total + parseFloat(producto.precio), 0);
+  }
+  
   toggleCart() {
       this.open = !this.open
   }

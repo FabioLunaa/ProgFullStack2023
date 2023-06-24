@@ -7,15 +7,16 @@
         <mat-sidenav mode="side" class="sidenav" [opened]="open" position="end">
             <h2>Carrito</h2>
             <div class="items">
-                <div class="itemrow" *ngFor="let producto of productosEnCarro">
-
+                <div class="itemrow" *ngFor="let producto of productosEnCarro; let i = index">
                     <p>{{producto.nombre}}</p>
-                    <p>{{producto.precio}}</p>
-
+                    <p>${{producto.precio}}</p>
+                    <button (click)="removeFromCart(i)">X</button>
                 </div>
+                <p>Total: ${{getTotal()}}</p>
+                
             </div>
             <div class="botones">
-                <button>Finalizar compra</button>
+                <button type="submit" routerLink='/metodopago' class="btn btn-primary">Finalizar compra</button>
             </div>
         </mat-sidenav>
         <mat-sidenav-content>
@@ -39,9 +40,5 @@
         </mat-sidenav-content>
     </mat-sidenav-container>
 
-
-
-
-    <!-- <script src="./js/productos.js"></script> -->
 </body>
 </html>
