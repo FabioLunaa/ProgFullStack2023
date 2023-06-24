@@ -1,6 +1,6 @@
 
 <main class="contenedor-form">
-    <form class="row g-3 container-sm" [formGroup]="registrarse" (ngSubmit)="submitForm($event)">
+    <form class="container-sm" [formGroup]="registrarse" (ngSubmit)="submitForm($event)">
         <div class="col-md-6">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" placeholder="email@email.com" id="email" formControlName="email" required>
@@ -25,9 +25,9 @@
                 <span *ngIf="registrarse.get('passcon')?.hasError('required')">La contraseña es requerida.</span>
                 <span *ngIf="registrarse.get('passcon')?.errors?.['matchPassword']">Las contraseñas no coinciden.</span>
             </div>
-            
+
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="dni" class="form-label">DNI</label>
             <input type="text" class="form-control" placeholder="12345678" id="dni" formControlName="dni" required>
             <div *ngIf="registrarse.get('dni')?.invalid && registrarse.get('dni')?.touched" class="error-message">
@@ -35,7 +35,7 @@
                 <span *ngIf="registrarse.get('dni')?.hasError('pattern')">El DNI debe tener 8 dígitos numéricos.</span>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-6">
             <label for="direccion" class="form-label">Dirección</label>
             <input type="text" class="form-control" id="direccion" placeholder="1234 dirección" formControlName="direccion" required>
             <div *ngIf="registrarse.get('direccion')?.invalid && registrarse.get('direccion')?.touched" class="error-message">
@@ -51,7 +51,7 @@
                 <span *ngIf="registrarse.get('localidad')?.hasError('pattern')">La localidad solo puede contener letras.</span>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label for="provincia" class="form-label">Provincia</label>
             <select id="provincia" class="form-select" formControlName="provincia" required>
                 <option selected>Seleccionar</option>
@@ -84,10 +84,10 @@
                 <span *ngIf="registrarse.get('provincia')?.hasError('pattern')">La provincia solo puede contener letras.</span>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-6">
             <button type="submit" class="btn btn-primary">Registrarse</button>
         </div>
-        
-      
+
+
     </form>
 </main>

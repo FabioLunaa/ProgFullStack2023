@@ -3,6 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+.contenedor-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Opcional: Ajusta la altura de la sección según tus necesidades */
+}
+.container-sm {
+  width: 50%; /* Opcional: Ajusta el ancho del formulario según tus necesidades */
+}
+
 .title {
     text-align: center;
     border: 0.1em solid #370101;
@@ -128,7 +140,7 @@ input, textarea {
     }
     .image-container {
         display: none;
-    }  
+    }
 }
 @media screen and (max-width: 650px) {
     .login-container {
