@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../services/producto.service';
-
+import * as fs from 'fs';
 
 @Component({
   selector: 'app-VerProductos',
@@ -39,11 +39,16 @@ export class VerProductosComponent implements OnInit {
   }
 
   getTotal(): number {
-    for (const producto of this.productosEnCarro) {
-      const precioNumerico = parseFloat(producto.precio);
-      console.log(typeof precioNumerico);
-    }
-    return this.productosEnCarro.reduce((total, producto) => total + parseFloat(producto.precio), 0);
+    const total = this.productosEnCarro.reduce((accum, producto) => accum + parseFloat(producto.precio), 0);
+    
+    const data = {
+      total: total,
+      // Otras propiedades adicionales que desees guardar en el JSON
+    };
+  
+    localStorage.setItem('totalData', JSON.stringify(data));
+  
+    return total;
   }
   
   toggleCart() {

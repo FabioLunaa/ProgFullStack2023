@@ -26,3 +26,11 @@ verMetodopago():void{
   })
  }
 }
+const storedData = localStorage.getItem('totalData');
+if (storedData) {
+  const data = JSON.parse(storedData);
+  // Acceder a los valores
+  const total = data.total;
+  // Hacer lo que necesites con los datos
+  console.log('Total:', total);
+}
