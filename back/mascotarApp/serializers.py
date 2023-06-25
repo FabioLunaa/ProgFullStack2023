@@ -1,27 +1,23 @@
 
 from rest_framework import serializers
 from .models import Producto
+from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import make_password
 
-from django.contrib.auth.models import User
 
 class ProductoSerializer(serializers.ModelSerializer):
  class Meta:
   model= Producto
   fields='__all__'
-  #fields=('nombre')
   
-
 class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'username', 'email')
+    email = serializers.EmailField(required=True)
+    password = serializers.CharField(min_length=8, write_only=True)
 
-class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username', 'email', 'password')
-        extra_kwargs = {'password': {'write_only': True}}
+        model = get_user_model()
+        fields = ("email", "password")
 
-    def create(self, validated_data):
-        user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
-        return user
+    def validate_password(self, value):
+        return make_password(value)
+    

@@ -7,23 +7,40 @@ import { ProductosModule } from './Productos/Productos.module';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { HttpClient} from '@angular/common/http';
-import { ApiService } from './Services/api.service';
+import { Routes } from '@angular/router';
+import { LoguearseComponent } from './auth/loguearse/loguearse.component';
+import { HomeComponent } from './pages/home/home.component';
+import { VerProductosComponent } from './Productos/VerProductos/VerProductos.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { AuthModule } from './auth/auth.module';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor } from './Services/auth/interceptor';
-import { UsuarioService } from './Services/usuario.service';
-import { ErrorInterceptor } from './Services/auth/error.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { RegistrarseComponent } from './auth/registrarse/registrarse.component';
+import { MetodopagoComponent } from './pages/metodopago/metodopago.component';
 
+
+const routes: Routes = [
+  { path: 'iniciar-sesion', component: LoguearseComponent},
+  { path: 'home', component: HomeComponent} ,
+  { path: 'carrito', component: MetodopagoComponent},
+  { path: 'metodopago', component: MetodopagoComponent},
+  { path: 'ver-productos', component: VerProductosComponent},
+  { path: 'registrarse', component: RegistrarseComponent},
+  { path: 'contacto', component: ContactoComponent},
+  { path: 'dashboard', redirectTo: 'iniciar-sesion', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    LoguearseComponent,
+    RegistrarseComponent,
+    VerProductosComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,13 +52,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    RouterModule.forRoot(routes),
   ],
-  providers:  [UsuarioService,ApiService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-  ],
+  
+  providers:  [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  
 })
 export class AppModule { }
