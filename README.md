@@ -16,7 +16,7 @@ MascotAR es un sitio web que tiene como propósito principal ayudar a los animal
 Además incluye una sección destinada a la venta online de productos para animales de compañía.
 
 ## Presentación de proyecto
-https://drive.google.com/file/d/1wwHvRvEwT--qVymm96WzdTUopdHA3P6l/view?usp=drive_link
+[![video](https://github.com/FabioLunaa/ProgFullStack2023/blob/Feature/Maquetado%20(Trabajo%20anterior)/ProgFullStack-main/Frontend/imagenes/animals-3017138_1280.jpg)](https://drive.google.com/file/d/1wwHvRvEwT--qVymm96WzdTUopdHA3P6l/view?usp=drive_link)
 
 # Tecnologias Utilizadas
 ![https://img.shields.io/badge/Python-3.11.3-blue](https://img.shields.io/badge/Python-3.11.3-blue)
